@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Olympia</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+    <!-- Custom Fonts -->
+    <link href="../static/css/font-awesome-4.6.1/css/font-awesome.min.css" th:href="@{/css/font-awesome-4.6.1/css/font-awesome.min.css}" rel="stylesheet"
+          type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100italic,300italic" type="text/css" rel="stylesheet" />
+    <!-- Custom CSS For Index Page Only -->
+    <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation -->
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="#Welcome">
+                <i class="fa fa-play-circle"></i> <span class="light">Start</span> Your Journey
+            </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                <li class="hidden"><a href="#page-top"></a></li>
+                <li><a class="page-scroll" href="#About">About</a></li>
+                <li><a class="page-scroll" href="#Welcome">Welcome</a></li>
+                <li><a class="page-scroll" href="#Cards">Cards</a></li>
+                <li><a class="page-scroll" href="#Status">Status</a></li>
+                <li><a id="login-show" class="page-scroll" href="#Login">Login</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<!-- Intro -->
+<header id="Intro" class="poster text-center container-fluid" data-parallax="scroll"
+        th:attr="data-image-src=@{/img/above-water-background.jpg}">
+    <div style="text-align: center; position: absolute; bottom: 0; width: 100%; padding-top: 32px; padding-bottom: 32px; margin: 0 -15px;">
+        <a href="#About" class="btn btn-circle page-scroll">
+            <i class="fa fa-chevron-down animated"></i>
+        </a>
+    </div>
+</header>
+<!-- About -->
+<section id="About" class="information container-fluid">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+            <h2>A Professional Career Management Tool</h2>
+            <p>Employees will be empowered with a tool to help them with their career path.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 text-center">
+            <img th:src="@{'/img/task-management-icon-131x261.png'}" />
+            <h3>Task Management</h3>
+            <p>Employees and managers will have a tool to manage their daily tasks, view statistics, history of past activities and track their progress.</p>
+        </div>
+        <div class="col-lg-4 text-center">
+            <img th:src="@{'/img/dashboard-icon-131x261.png'}" />
+            <h3>Dashboard</h3>
+            <p>Employees can view their status, daily tasks and other Olympia members with a user friendly interface to help manage their careers.</p>
+        </div>
+        <div class="col-lg-4 text-center">
+            <img th:src="@{'/img/admin-icon-131x261.png'}" />
+            <h3>Admin</h3>
+            <p>Careers will be managed by an Administrator and allow management to guide and help employees achieve their goals.</p>
+        </div>
+    </div>
+    <div style="text-align: center; position: absolute; bottom: 0; width: 100%; padding-top: 32px; padding-bottom: 32px; margin: 0 -15px;">
+        <a href="#Welcome" class="btn btn-circle page-scroll">
+            <i class="fa fa-chevron-down animated"></i>
+        </a>
+    </div>
+</section>
+<!-- Welcome -->
+<section id="Welcome" class="poster container-fluid" data-parallax="scroll"
+         th:attr="data-image-src=@{/img/middle_page_-_underwater.jpg}">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+            <h2>Welcome To Olympia</h2>
+            <p>Welcome to a world leading Human Resource Management System <br />
+                that recognises you for your hard work.Olympia will empower <br />
+                you as an Employer and as an Employee, and guide you <br />
+                to a successful business and career </p>
+        </div>
+    </div>
+    <div style="text-align: center; position: absolute; bottom: 0; width: 100%; padding-top: 32px; padding-bottom: 32px; margin: 0 -15px;">
+        <a href="#Cards" class="btn btn-circle page-scroll">
+            <i class="fa fa-chevron-down animated"></i>
+        </a>
+    </div>
+</section>
+<!-- Cards -->
+<section id="Cards" class="information container-fluid" style="padding-left: 15px; padding-right: 15px">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>SQIM Olympia Access Cards</h2>
+            <p>SQIM Olympia members will receive an access card linked to their current status.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div th:each="c,i : ${#strings.arraySplit('blue,bronze,silver,gold,diamond', ',')}" class="card col-lg-2"
+             th:classappend="${i.index} == 0 ? 'col-lg-offset-1'">
+            <img th:alt="${#strings.capitalize(c)} + ' access card.'" th:src="@{'/img/' + ${c} + '-access-card-180x320.jpg'}" />
+        </div>
+    </div>
+    <div style="text-align: center; position: absolute; bottom: 0; width: 100%; padding-top: 32px; padding-bottom: 32px; margin: 0 -15px;">
+        <a href="#Status" class="btn btn-circle page-scroll">
+            <i class="fa fa-chevron-down animated"></i>
+        </a>
+    </div>
+</section>
+<!-- Status Section -->
+<section id="Status" class="poster text-center container-fluid" data-parallax="scroll"
+         th:attr="data-image-src=@{/img/Bottom_Page-Underground.jpg}">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Status Is Everything</h2>
+            <p>Your Olympia status grows by earning points, you gain points by completing <br />
+                daily task, activities and quests. With each Olympia status you will <br />
+                enjoy even greater rewards as you elevate in status <br />
+                to the highest level of recognition.</p>
+        </div>
+    </div>
+    <div style="text-align: center; position: absolute; bottom: 0; width: 100%; padding-top: 32px; padding-bottom: 32px; margin: 0 -15px;">
+        <a href="#Intro" class="btn btn-circle page-scroll">
+            <i class="fa fa-chevron-up animated"></i>
+        </a>
+    </div>
+</section>
+<footer>
+    <p class="hidden-sm hidden-md hidden-lg">
+        <img width="171" height="64" th:src="@{/img/sqim-logo-footer-171x64.png}" />
+    </p>
+    <p class="hidden-xs">Copyright &copy; SQIM Olympia 2016</p>
+    <img style="position: absolute; left: 0; bottom: 0;" class="hidden-xs" width="298" height="298" th:src="@{/img/sqim-logo-298x298.png}" />
+</footer>
+<!-- Login -->
+<div id="Login" class="loginform">
+    <form method="post" th:action="@{/user/login}">
+        <input type="text" id="username" name="username" value="" placeholder="Username" required="required" /> <input type="password" id="password"
+                                                                                                                       name="password" value="" placeholder="Password" required="required" />
+        <button type="submit">Login</button>
+    </form>
+</div>
+<!-- /Login -->
+<!-- jQuery -->
+<script src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<!-- Plugin JavaScript -->
+<script src="../static/js/jquery.easing.min.js" th:src="@{/js/jquery.easing.min.js}"></script>
+<!-- Custom Code For Index Page -->
+<script src="../static/js/index.js" th:src="@{/js/index.js}"></script>
+<!-- Parralex -->
+<script src="../static/js/parallax.min.js" th:src="@{/js/parallax.min.js}"></script>
+</body>
+</html>
